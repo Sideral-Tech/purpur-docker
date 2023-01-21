@@ -2,6 +2,6 @@
 -Xmx1G
 -Xgcpolicy:metronome
 -Xshareclasses
--Xshareclasses:cachedir=./app/server/cache/jvm
+-Xshareclasses:cachedir=/app/server/cache/jvm
 -Xaggressive
 -XX:+AlwaysPreTouch
