@@ -30,7 +30,7 @@ RUN groupadd -g ${GID} ${UNAME} \
     && chown -R ${UNAME}:${UNAME} /app/server \
     && echo "eula=true" > /app/server/eula.txt
 
-COPY --from=semeru /app/opejdk /opt/java
+COPY --from=semeru /app/openjdk /opt/java
 
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
