@@ -2,6 +2,6 @@
 -Xmx4G
 -Xgcpolicy:balanced
 -Xshareclasses
--Xshareclasses:cachedir=/app/config/config.jvm
+-Xshareclasses:cachedir=/app/server/cache/jvm
 -Xaggressive
 -XX:+AlwaysPreTouch
