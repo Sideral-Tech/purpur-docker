@@ -32,4 +32,4 @@ wget https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessful
 wget https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar -O /app/server/plugins/floodgate-spigot.jar
 
 # Run the server
-java --add-modules=jdk.incubator.vector ${JVM_SETTINGS} -jar /app/server/purpur.jar nogui
+java --add-modules=jdk.incubator.vector ${JVM_SETTINGS} -jar -Dpaper.maxChunkThreads=4 /app/server/purpur.jar nogui

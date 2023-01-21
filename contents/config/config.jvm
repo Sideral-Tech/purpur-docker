@@ -1,5 +1,5 @@
--Xms2G
--Xmx4G
+-Xms4G
+-Xmx8G
 -Xgcpolicy:balanced
 -Xshareclasses
 -Xshareclasses:cachedir=/app/server/cache/jvm
