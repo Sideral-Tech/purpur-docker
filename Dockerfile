@@ -23,10 +23,8 @@ RUN apt update \
     && apt clean \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /app/config/ \
-    && mkdir -p /app/server/plugins \
     && groupadd -g ${GID} ${UNAME} \
-    && useradd -r -u ${UID} -g ${UNAME} ${UNAME} \
-    && chown -R ${UNAME}:${UNAME} /app/server
+    && useradd -r -u ${UID} -g ${UNAME} ${UNAME}
 
 COPY ./contents/config/config.jvm /app/config/config.jvm
 COPY ./contents/scripts/run.sh /app/run.sh

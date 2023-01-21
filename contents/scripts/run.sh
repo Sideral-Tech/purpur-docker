@@ -2,6 +2,9 @@
 
 # This script is used to run the application
 
+# Change to the server directory
+cd /app/server || exit
+
 # Set the JVM settings
 
 JVM_SETTINGS="-Xoptionsfile=/app/config/config.jvm"
@@ -13,6 +16,10 @@ MC_VERSION=1.19.3
 # Accept the EULA
 
 echo "eula=true" > /app/server/eula.txt
+
+# Setup directories
+
+mkdir -p /app/server/plugins
 
 # Download the latest Purpur build
 
