@@ -1,5 +1,7 @@
-FROM cycloid/github-cli as semeru
+FROM ghcr.io/supportpal/github-gh-cli as semeru
 
+ARG GH_TOKEN
+ENV GH_TOKEN=${GH_TOKEN}
 ENV MC_VERSION=1.19.3
 
 WORKDIR /app
