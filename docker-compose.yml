@@ -2,7 +2,7 @@
 version: "3.8"
 services:
   purpur:
-    image: ghcr.io/Sideral-Tech/purpur-docker:latest
+    image: ghcr.io/sideral-tech/purpur-docker:latest
     container_name: purpur
     user: 1000:1000
     volumes:
