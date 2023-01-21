@@ -19,7 +19,7 @@ ENV JVM_SETTINGS="-Xoptionsfile=/app/server/config.jvm"
 ENV MC_VERSION=1.19.3
 
 WORKDIR /app
-
+RUN apt update && apt install -y wget
 RUN mkdir -p /app/server/cache/jvm
 RUN wget https://api.purpurmc.org/v2/purpur/${MC_VERSION}/latest/download -O ./server/purpur.jar
 
