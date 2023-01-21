@@ -15,8 +15,6 @@ ENV UNAME=purpur
 ENV UID=1000
 ENV GID=1000
 ENV JAVA_HOME=/opt/java/openjdk
-ENV JVM_SETTINGS="-Xoptionsfile=/app/server/config.jvm"
-ENV MC_VERSION=1.19.3
 
 WORKDIR /app
 
@@ -24,19 +22,16 @@ RUN apt update \
     && apt install -y wget \
     && apt clean \
     && rm -rf /var/lib/apt/lists/* \
-    && mkdir -p /app/server/cache/jvm \
-    && mkdir -p /app/server/plugins \
+    && mkdir -p /app/config/ \
+    && mkdir -p /app/server/ \
     && groupadd -g ${GID} ${UNAME} \
     && useradd -r -u ${UID} -g ${UNAME} ${UNAME} \
-    && chown -R ${UNAME}:${UNAME} /app/server \
-    && echo "eula=true" > /app/server/eula.txt \
-    && wget https://api.purpurmc.org/v2/purpur/${MC_VERSION}/latest/download -O ./server/purpur.jar \
-    && wget https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar -O ./server/plugins/Geyser-Spigot.jar \
-    && wget https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar -O ./server/plugins/floodgate-spigot.jar
+    && chown -R ${UNAME}:${UNAME} /app/server
 
-COPY ./resources/config/config.jvm /app/server/config.jvm
+COPY ./contents/config/config.jvm /app/config/config.jvm
+COPY ./contents/scripts/run.sh /app/run.sh
 
-COPY --from=semeru /app/openjdk /opt/java
+COPY --from=semeru /app/openjdk /opt/java/openjdk
 
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
@@ -45,4 +40,4 @@ EXPOSE 19132
 
 USER ${UNAME}
 
-ENTRYPOINT ["java", "--add-modules=jdk.incubator.vector", ${JVM_SETTINGS}, "-jar", "/app/purpur.jar", "nogui"]
+ENTRYPOINT ["/bin/bash", "/app/run.sh"]

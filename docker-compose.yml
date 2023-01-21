@@ -1,12 +1,14 @@
 ---
 version: "3.8"
 services:
-  radarr:
+  purpur:
     image: ghcr.io/Sideral-Tech/purpur-docker:latest
     container_name: purpur
+    user: 1000:1000
     volumes:
-      - /data/purpur:/app
+      - /data/purpur:/app/server
     ports:
       - 25565:25565
+      - 19132:19132
     restart: unless-stopped
 
