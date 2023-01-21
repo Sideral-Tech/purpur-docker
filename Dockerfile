@@ -23,7 +23,7 @@ RUN apt update \
     && apt clean \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /app/config/ \
-    && mkdir -p /app/server/ \
+    && mkdir -p /app/server/plugins \
     && groupadd -g ${GID} ${UNAME} \
     && useradd -r -u ${UID} -g ${UNAME} ${UNAME} \
     && chown -R ${UNAME}:${UNAME} /app/server

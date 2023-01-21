@@ -1,6 +1,6 @@
 -Xms2G
 -Xmx4G
--Xgcpolicy:metronome
+-Xgcpolicy:balanced
 -Xshareclasses
 -Xshareclasses:cachedir=/app/config/config.jvm
 -Xaggressive
